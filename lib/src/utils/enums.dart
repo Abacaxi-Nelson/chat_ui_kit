@@ -25,7 +25,7 @@ enum MessagePosition {
 enum MessageFlow { incoming, outgoing }
 
 /// The type of selection passed in [SelectionEvent]
-enum SelectionType { select, unSelect }
+enum SelectionType { select, unSelect, mark, unMark }
 
 /// The type of the [MessageBase], see [MessageBase.messageType]
 enum MessageBaseType { text, image, audio, video, other }
