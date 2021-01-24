@@ -81,25 +81,23 @@ class MessagesListController<T extends MessageBase> extends ChangeNotifier {
     notifyListeners();
 
     _controller.sink.add(
-        SelectionEvent(SelectionType.mark, [item], _selectedItems.length), family);
+        SelectionEvent(SelectionType.mark, [item], 0, family);
   }
 
   void unMark(String family, T item) {
     _markedItems.remove(family);
     notifyListeners();
 
-    //update SelectionEvent, SelectionType
     _controller.sink.add(
-        SelectionEvent(SelectionType.unMark, [item], _selectedItems.length), family);
+        SelectionEvent(SelectionType.unMark, [item], 0, family);
   }
 
-  void unMarkAll(String family, T item) {
+  void unMarkAll() {
     _markedItems = <String, T>{};
     notifyListeners();
 
-    //update SelectionEvent, SelectionType
     _controller.sink.add(
-        SelectionEvent(SelectionType.unMark, [], _selectedItems.length), family);
+        SelectionEvent(SelectionType.unMark, [], 0, null);
   }
   ///************************************************* Action management *************************************************************
 
