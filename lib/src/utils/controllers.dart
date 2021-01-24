@@ -46,6 +46,11 @@ class MessagesListController<T extends MessageBase> extends ChangeNotifier {
     this._items.remove(item);
     notifyListeners();
   }
+  
+  void removeItemById(T item) {
+    this._items.removeWhere((element) => element.id == item.id);
+    notifyListeners();
+  }
 
   void removeItems(List<T> items) {
     for (T item in items) {
