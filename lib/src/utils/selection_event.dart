@@ -11,5 +11,5 @@ class SelectionEvent<T> {
   // used for mark management
   final String family;
 
-  SelectionEvent(this.type, this.items, this.currentSelectionCount, [this.type]);
+  SelectionEvent(this.type, this.items, this.currentSelectionCount, [this.family]);
 }
