@@ -94,7 +94,7 @@ class MessagesListController<T extends MessageBase> extends ChangeNotifier {
   }
 
   void unMarkAll() {
-    _markedItems = <String, T>{};
+    _markedItems.clear();
     notifyListeners();
 
     _controller.sink.add(
