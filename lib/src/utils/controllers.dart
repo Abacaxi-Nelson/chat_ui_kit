@@ -75,6 +75,7 @@ class MessagesListController<T extends MessageBase> extends ChangeNotifier {
   * Mark a message trigger an event on the stream to update your UI (Filter event on SelectionType)
   */
   final Map<String, T> _markedItems = <String, T>{};
+  Map<String, T> get markedItems => _markedItems;
   
   void mark(String family, T item) {
     _markedItems[family] = item;
