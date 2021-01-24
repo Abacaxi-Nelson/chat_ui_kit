@@ -67,7 +67,40 @@ class MessagesListController<T extends MessageBase> extends ChangeNotifier {
   }
 
   void notifyChanges() => notifyListeners();
+  
+  ///************************************************* Mark Action management *************************************************************
+  /*
+  * How it work ?
+  * Mark your messages according your use case : Modify/Reply message
+  * Mark a message trigger an event on the stream to update your UI (Filter event on SelectionType)
+  */
+  final Map<String, T> _markedItems = <String, T>{};
+  
+  void mark(String family, T item) {
+    _markedItems[family] = item;
+    notifyListeners();
 
+    _controller.sink.add(
+        SelectionEvent(SelectionType.mark, [item], _selectedItems.length), family);
+  }
+
+  void unMark(String family, T item) {
+    _markedItems.remove(family);
+    notifyListeners();
+
+    //update SelectionEvent, SelectionType
+    _controller.sink.add(
+        SelectionEvent(SelectionType.unMark, [item], _selectedItems.length), family);
+  }
+
+  void unMarkAll(String family, T item) {
+    _markedItems = <String, T>{};
+    notifyListeners();
+
+    //update SelectionEvent, SelectionType
+    _controller.sink.add(
+        SelectionEvent(SelectionType.unMark, [], _selectedItems.length), family);
+  }
   ///************************************************* Action management *************************************************************
 
   void onItemTap(BuildContext context, int index, T item) {
