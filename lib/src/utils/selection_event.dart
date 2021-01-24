@@ -7,6 +7,9 @@ class SelectionEvent<T> {
   final List<T> items;
 
   final int currentSelectionCount;
+  
+  // used for mark management
+  final String family;
 
-  SelectionEvent(this.type, this.items, this.currentSelectionCount);
+  SelectionEvent(this.type, this.items, this.currentSelectionCount, [this.type]);
 }
