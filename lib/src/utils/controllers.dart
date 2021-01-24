@@ -82,7 +82,7 @@ class MessagesListController<T extends MessageBase> extends ChangeNotifier {
     notifyListeners();
 
     _controller.sink.add(
-        SelectionEvent(SelectionType.mark, [item], 0, family);
+        SelectionEvent(SelectionType.mark, [item], 0, family));
   }
 
   void unMark(String family, T item) {
@@ -90,7 +90,7 @@ class MessagesListController<T extends MessageBase> extends ChangeNotifier {
     notifyListeners();
 
     _controller.sink.add(
-        SelectionEvent(SelectionType.unMark, [item], 0, family);
+        SelectionEvent(SelectionType.unMark, [item], 0, family));
   }
 
   void unMarkAll() {
@@ -98,7 +98,7 @@ class MessagesListController<T extends MessageBase> extends ChangeNotifier {
     notifyListeners();
 
     _controller.sink.add(
-        SelectionEvent(SelectionType.unMark, [], 0, null);
+        SelectionEvent(SelectionType.unMark, [], 0, null));
   }
   ///************************************************* Action management *************************************************************
 
