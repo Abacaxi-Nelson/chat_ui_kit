@@ -221,7 +221,8 @@ class ChatsListController<T extends ChatBase> extends ChangeNotifier {
     final index = _items.indexWhere((element) => element.id == item.id);
     if (index > -1) {
       if (pushToStart || pushToEnd) {
-        final item = _items.removeAt(index);
+        // fix
+        final removed_item = _items.removeAt(index);
         if (pushToStart) {
           _items.insert(0, item);
         } else {
