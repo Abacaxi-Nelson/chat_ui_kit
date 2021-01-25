@@ -122,6 +122,7 @@ class MessagesListTile<T extends MessageBase> extends StatelessWidget {
                 messagePosition: messagePosition,
                 builders: builders.outgoingMessageBuilders)
             : IncomingMessage(
+                style: style,
                 item: item,
                 index: index,
                 messagePosition: messagePosition,
