@@ -47,8 +47,8 @@ class MessagesListController<T extends MessageBase> extends ChangeNotifier {
     notifyListeners();
   }
   
-  void removeItemById(T item) {
-    this._items.removeWhere((element) => element.id == item.id);
+  void removeItemById(String id) {
+    this._items.removeWhere((element) => element.id == id);
     notifyListeners();
   }
 
@@ -201,6 +201,11 @@ class ChatsListController<T extends ChatBase> extends ChangeNotifier {
 
   void removeItem(T item) {
     this._items.remove(item);
+    notifyListeners();
+  }
+  
+  void removeItemById(String id) {
+    this._items.removeWhere((element) => element.id == id);
     notifyListeners();
   }
 
